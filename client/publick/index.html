@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../src/css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <title>Feedback Form</title>
+  </head>
+  <body>
+    <div class="container">
+      <form
+        class="feedback-form"
+        id="feedbackForm"
+        onsubmit="submitForm(event)"
+      >
+        <h2 class="feedback-form__title">Обратная форма</h2>
+        <div class="feedback-form__all-input">
+          <div class="feedback-form__group feedback-form__group-name">
+            <label class="feedback-form__label" for="name">
+              <input
+                class="feedback-form__input"
+                type="text"
+                id="name"
+                name="name"
+                required
+                onfocus="handleFocus('name')"
+                onblur="handleBlur('name')"
+                onkeydown="handleKeyDown(event)"
+              />
+              <span>ФИО</span>
+            </label>
+          </div>
+          <div class="feedback-form__group feedback-form__group-phone">
+            <label class="feedback-form__label" for="phone">
+              <input
+                class="feedback-form__input"
+                type="tel"
+                id="phone"
+                name="phone"
+                required
+                onfocus="handleFocus('phone')"
+                onblur="handleBlur('phone')"
+                oninput="maskPhone()"
+                maxlength="17"
+              />
+              <span>Телефон</span>
+            </label>
+          </div>
+          <div class="feedback-form__group feedback-form__group-email">
+            <label class="feedback-form__label" for="email">
+              <input
+                class="feedback-form__input"
+                type="email"
+                id="email"
+                name="email"
+                pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+                onfocus="handleFocus('email')"
+                onblur="handleBlur('email')"
+              />
+              <span>E-mail</span>
+            </label>
+          </div>
+          <div class="feedback-form__group feedback-form__group-message">
+            <label
+              class="feedback-form__label feedback-form__label-message"
+              for="message"
+            >
+              <textarea
+                class="feedback-form__input feedback-form__input-textarea"
+                id="message"
+                name="message"
+                rows="4"
+                onfocus="handleFocus('message')"
+                onblur="handleBlur('message')"
+              ></textarea>
+              <span>Сообщение</span>
+            </label>
+          </div>
+        </div>
+        <div class="feedback-form__sub-title">
+          Отправляя форму, Вы соглашаетесь на
+          <span>обработку персональных данных</span>
+        </div>
+        <div class="feedback-form__button">
+          <button class="feedback-form__submit" type="submit">Отправить</button>
+        </div>
+      </form>
+    </div>
+    <script src="../src/scripts/phoneMask.js"></script>
+    <script src="../src/scripts/inputFocus.js"></script>
+    <script src="../src/scripts/handelKeyDownFIO.js"></script>
+    <script src="../src/scripts/submitForm.js"></script>
+  </body>
+</html>
